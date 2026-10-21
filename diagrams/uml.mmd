@@ -1,0 +1,54 @@
+classDiagram
+    %% Replace the placeholders below with your actual classes, attributes, methods, and relationships.
+    %% Keep this file updated so it matches your final implementation.
+
+    class Owner {
+        +str name
+        +lst preferences
+        +int time_available_minutes
+        +None add_preference(preference: str)
+        +dictionary get_preferences() Str
+    }
+    Owner --> Schedule : Owner's Scheule 
+
+    class Pet {
+        +str name
+        +str species
+        +int age
+        +list special_needs
+
+        +get_special_needs() str
+    }
+
+
+    class Task {
+        +str title
+        +str priority
+        +int duration_minutes
+        +str frequency
+        +int get_priority_value() return - int
+        +boolean is_due_today() booelan
+    }
+
+    class Schedule {
+        +str day
+        +list tasks
+        +int total_time_minutes
+        +None add_task(task: Task)
+        +int get_total_duration() int
+    }    
+    class Scheduler {
+        +Owner owner
+        +Pet pet
+        +list available_tasks
+        + generate_plan() return - Schedule
+        +list sort_tasks_by_priority() - str
+    }
+
+
+
+    Scheduler --> Schedule: Scheduler generates Schedule
+    Schedule --> Task: Scheduler manages Tasks
+    Scheduler --> Owner: Scheduler interacts with Owner
+    Scheduler --> Pet: Scheduler considers Pet's needs
+
